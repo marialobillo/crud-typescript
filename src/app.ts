@@ -5,6 +5,7 @@ import path from 'path';
 
 // Routes
 import indexRoutes from './routes';
+import tasksRoutes from './routes/tasks';
 
 class Application {
     
@@ -35,6 +36,7 @@ class Application {
 
     routes(){
         this.app.use(indexRoutes);
+        this.app.use('/tasks', tasksRoutes);
 
         this.app.use(express.static(path.join(__dirname, 'public')));
     }
