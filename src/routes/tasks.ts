@@ -29,4 +29,19 @@ router.route('/delete/:id')
         res.redirect('/tasks/list');
     });
 
+router.route('/edit/:id')
+    .get(async (req: Request, res: Response) => {
+        const { id } = req.params;
+        const task = await Task.findById(id).lean();
+        res.render('tasks/edit', { task });
+    })
+    .post(async (req: Request, res: Response) => {
+        const { id } = req.params;
+        const { title, description} = req.body;
+        await Task.findByIdAndUpdate(id, {title, description});
+        res.redirect('/tasks/list');
+    });
+
+
+
 export default router;
