@@ -18,9 +18,15 @@ router.route('/create')
 
 router.route('/list')
     .get(async (req: Request, res: Response) => {
-        const tasks = await Task.find();
-        console.log(tasks);
+        const tasks = await Task.find().lean();
         res.render('tasks/list', { tasks });
-    })
+    });
+
+router.route('/delete/:id')
+    .get(async (req: Request, res: Response) => {
+        const { id } = req.params;
+        await Task.findByIdAndDelete(id);
+        res.redirect('/tasks/list');
+    });
 
 export default router;

@@ -1,24 +1,26 @@
 <div class="row">
     {{#each tasks}}
         <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
-                    {{#each this}}
-                        <h3>{{title}}</h3>
-                        <p>{{description}}</p>
-                    {{/each}}
-                </div>
-                <div class="card-footer d-flex justify-content-between align-item-center">
-                    <a 
-                        class="btn btn-primary"
-                        href="">Delete</a>
+            
+                <div class="card">
+                    
+                    <div class="card-body">
+                            <h3>{{title}}</h3>
+                            <p>{{description}}</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-item-center">
+                         <a 
+                            class="btn btn-primary"
+                            href="/tasks/delete/{{_id}}">
+                            Delete
 
-                    <a  
-                        class="btn btn-warning"
-                        href="">Edit</a>
+                        <a  
+                            class="btn btn-warning"
+                            href="">Edit</a>
+                    </div>
+                    
                 </div>
-            </div>
+            
         </div>
     {{/each}}
-
 </div>
