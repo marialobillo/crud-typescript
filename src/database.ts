@@ -4,7 +4,8 @@ async function connect(){
 
     try {
         await mongoose.connect('mongodb://localhost/ts-crud', {
-            useNewUrlParser: true
+            useNewUrlParser: true,
+            useUnifiedTopology: true
         });
         console.log('>>> Database connected!');
     } catch (error) {
