@@ -13,7 +13,7 @@ router.route('/create')
         const { title, description } = req.body;
         const newTask = new Task({title, description});
         await newTask.save();
-        res.send('Saved!');
+        res.redirect('/tasks/list');
     });
 
 router.route('/list')
